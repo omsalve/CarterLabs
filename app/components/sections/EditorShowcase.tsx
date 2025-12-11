@@ -21,7 +21,7 @@ export default function EditorShowcase() {
   ];
 
   return (
-    <div className="w-full bg-white py-16 px-4 relative overflow-hidden">
+    <div className="w-full bg-brand-cream py-16 px-4 relative overflow-hidden">
       {/* Film Grain */}
       <div 
         className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-multiply" 
