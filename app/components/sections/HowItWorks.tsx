@@ -47,7 +47,7 @@ export default function HowItWorks() {
   ];
 
   return (
-    <div className="w-full bg-gray-50 py-24 px-4">
+    <div className="w-full bg-brand-cream py-24 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Process Badge */}
         <div 
@@ -55,7 +55,7 @@ export default function HowItWorks() {
             mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}
         >
-          <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+          <div className="w-2 h-2 bg-brand-red rounded-full"></div>
           <span className="text-gray-700 font-medium">Process</span>
         </div>
 
@@ -127,7 +127,7 @@ export default function HowItWorks() {
                           <div className="absolute inset-0 bg-black/20"></div>
                           <Wand2 className="w-8 h-8 text-white relative z-10" />
                         </div>
-                        <div className="w-16 h-16 bg-gray-900 rounded-xl shadow-lg flex items-center justify-center">
+                        <div className="w-16 h-16 bg-brand-navy rounded-xl shadow-lg flex items-center justify-center">
                           <span className="text-blue-400 font-bold text-xl">Pr</span>
                         </div>
                       </div>
@@ -154,7 +154,7 @@ export default function HowItWorks() {
                     {/* Step 4 - Files and publish */}
                     {step.files && (
                       <div className="flex items-center justify-center gap-4 flex-wrap">
-                        <div className="bg-gray-900 text-white px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2">
+                        <div className="bg-brand-navy text-white px-6 py-3 rounded-2xl shadow-lg flex items-center gap-2">
                           <Zap className="w-4 h-4" />
                           <span className="text-sm font-medium">{step.files[0]}</span>
                         </div>

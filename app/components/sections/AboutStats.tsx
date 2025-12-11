@@ -77,7 +77,7 @@ export default function AboutStats() {
   }, [isVisible]);
 
   return (
-    <div ref={sectionRef} className="w-full bg-white py-24 px-4">
+    <div ref={sectionRef} className="w-full bg-brand-cream py-24 px-4">
       <div className="max-w-6xl mx-auto">
         {/* About Badge */}
         <div 
@@ -85,7 +85,7 @@ export default function AboutStats() {
             mounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4'
           }`}
         >
-          <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+          <div className="w-2 h-2 bg-brand-red rounded-full"></div>
           <span className="text-gray-700 font-medium">About</span>
         </div>
 
@@ -95,14 +95,14 @@ export default function AboutStats() {
             mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          <span className="text-gray-900">We help brands and creators grow </span>
+          <span className="text-gray-900">WE HELP BRANDS AND CREATORS GROW </span>
           <br />
-          <span className="text-gray-900">with content that works.</span>
+          <span className="text-gray-900">WITH CONTENT THAT WORKS.</span>
           <br />
-          <span className="text-gray-900">Consistent. </span>
+          <span style={{ fontFamily: 'var(--font-edwardian-script)' }} className="text-gray-900">Consistent. </span>
           <span style={{ fontFamily: 'var(--font-edwardian-script)' }} className="text-orange-500">Reliable</span>
           <span className="text-gray-900">. </span>
-          <span style={{ fontFamily: 'var(--font-edwardian-script)' }} className="text-red-500">Dialed in</span>
+          <span style={{ fontFamily: 'var(--font-edwardian-script)' }} className="text-brand-red">Dialed in</span>
           <span className="text-red-600">.</span>
         </h2>
 
@@ -114,7 +114,7 @@ export default function AboutStats() {
               mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
-            <div className="text-5xl md:text-6xl font-bold text-orange-500 mb-2">
+            <div className="text-5xl md:text-6xl font-bold text-brand-tangerine mb-2">
               {isVisible ? `${videosCount.toLocaleString()}+` : '0+'}
             </div>
             <div className="text-gray-900 font-medium text-base">

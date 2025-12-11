@@ -41,7 +41,7 @@ export default function PortfolioShowcase() {
   ];
 
   return (
-    <div className="w-full bg-gray-50 py-24 px-4">
+    <div className="w-full bg-brand-cream py-24 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Hall of Fame Badge */}
         <div 

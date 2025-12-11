@@ -27,7 +27,7 @@ export default function ProblemSolution() {
   ];
 
   return (
-    <div className="w-full bg-white py-24 px-4">
+    <div className="w-full bg-brand-cream py-24 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Our Solution Badge */}
         <div 
