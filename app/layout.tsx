@@ -1,15 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const smoochSans = localFont({
+  src: "../public/Fonts/SmoochSans.ttf",
+  variable: "--font-smooch-sans",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const onyx = localFont({
+  src: "../public/Fonts/Onyx.otf",
+  variable: "--font-onyx",
+  display: "swap",
+});
+
+const edwardianScript = localFont({
+  src: "../public/Fonts/edwardianscriptitc.ttf",
+  variable: "--font-edwardian-script",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -25,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${smoochSans.variable} ${onyx.variable} ${edwardianScript.variable} antialiased`}
       >
         {children}
       </body>

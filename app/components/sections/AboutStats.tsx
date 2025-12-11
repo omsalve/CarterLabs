@@ -91,20 +91,18 @@ export default function AboutStats() {
 
         {/* Main Heading */}
         <h2 
-          className={`text-4xl md:text-5xl lg:text-6xl font-bold text-center leading-tight mb-16 transition-all duration-700 delay-100 ${
+          className={`text-4xl md:text-5xl lg:text-6xl font-bold text-center leading-tight mb-16 transition-all duration-700 delay-100 font-[family-name:var(--font-onyx)] ${
             mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          <span className="text-gray-900">We're the Editing Partners Behind the</span>
+          <span className="text-gray-900">We help brands and creators grow </span>
           <br />
-          <span className="text-gray-900">Creators Who Actually Grow with</span>
+          <span className="text-gray-900">with content that works.</span>
           <br />
-          <span className="text-gray-900">Results. </span>
-          <span className="text-orange-500">Fast</span>
-          <span className="text-gray-900">, </span>
-          <span className="text-red-500">Reliable</span>
-          <span className="text-gray-900"> and </span>
-          <span className="text-red-600">Obsessed</span>
+          <span className="text-gray-900">Consistent. </span>
+          <span style={{ fontFamily: 'var(--font-edwardian-script)' }} className="text-orange-500">Reliable</span>
+          <span className="text-gray-900">. </span>
+          <span style={{ fontFamily: 'var(--font-edwardian-script)' }} className="text-red-500">Dialed in</span>
           <span className="text-red-600">.</span>
         </h2>
 

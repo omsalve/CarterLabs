@@ -52,10 +52,10 @@ export default function Header() {
               <a
                 key={item.name}
                 href={item.href}
-                className="text-gray-700 hover:text-orange-500 font-medium transition-colors duration-200 relative group"
+                className="text-gray-700 hover:text-[#FF7A1A] font-medium transition-colors duration-200 relative group"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF7A1A] group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
           </nav>
@@ -63,11 +63,11 @@ export default function Header() {
           {/* CTA Button */}
           <a
             href="#contact"
-            className="group bg-gray-900 hover:bg-black text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-xl"
+            className="group bg-[#101828] hover:bg-black text-white px-6 py-3 rounded-full font-semibold flex items-center gap-2 transition-all duration-300 hover:scale-105 hover:shadow-xl"
           >
             Contact
             <span className="w-8 h-8 bg-white rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-              <ArrowRight className="w-4 h-4 text-gray-900" />
+              <ArrowRight className="w-4 h-4 text-[#101828]" />
             </span>
           </a>
 
@@ -76,9 +76,9 @@ export default function Header() {
             className="md:hidden flex flex-col gap-1.5 p-2"
             aria-label="Menu"
           >
-            <span className="w-6 h-0.5 bg-gray-900"></span>
-            <span className="w-6 h-0.5 bg-gray-900"></span>
-            <span className="w-6 h-0.5 bg-gray-900"></span>
+            <span className="w-6 h-0.5 bg-[#101828]"></span>
+            <span className="w-6 h-0.5 bg-[#101828]"></span>
+            <span className="w-6 h-0.5 bg-[#101828]"></span>
           </button>
         </div>
       </div>

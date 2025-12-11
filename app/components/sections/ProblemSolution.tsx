@@ -41,11 +41,11 @@ export default function ProblemSolution() {
 
         {/* Main Heading */}
         <h2 
-          className={`text-4xl md:text-5xl lg:text-6xl font-bold text-center text-gray-900 mb-6 transition-all duration-700 delay-100 ${
+          className={`text-4xl md:text-5xl lg:text-6xl font-bold text-center text-gray-900 mb-6 transition-all duration-700 delay-100 font-[family-name:var(--font-onyx)] ${
             mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          Why Most Creators Burn Out
+          WHY MOST CREATORS BURN OUT.
         </h2>
 
         {/* Subheading */}
@@ -54,8 +54,7 @@ export default function ProblemSolution() {
             mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          A quick side-by-side of the struggles you shouldn't have to deal with and how we make sure you don't.
-        </p>
+          And how we make sure you don't.        </p>
 
         {/* Two Column Comparison */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">

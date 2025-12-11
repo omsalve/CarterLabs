@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-orange: #FF5500;
-  --color-brand-black: #111111;
-  --color-brand-gray: #F5F5F7;
-  --font-family-sans: var(--font-geist-sans), sans-serif;
+  --color-brand-mustard: #F4C43A;
+  --color-brand-tangerine: #FF7A1A;
+  --color-brand-red: #E65353;
+  --color-brand-cream: #FDF5E6;
+  --color-brand-navy: #101828;
+  --font-family-sans: var(--font-smooch-sans), sans-serif;
 }
 
 :root {
-  --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+  --font-onyx: var(--font-onyx);
+  --font-edwardian: var(--font-edwardian-script);
 }
 
 /* Custom Grid Pattern Utility */

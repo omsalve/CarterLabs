@@ -21,7 +21,7 @@ export default function EditorShowcase() {
   ];
 
   return (
-    <div className="w-full bg-gray-50 py-16 px-4">
+    <div className="w-full bg-white py-16 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Stats Marquee */}
         <div className="relative overflow-hidden mb-12">
@@ -38,9 +38,9 @@ export default function EditorShowcase() {
                 key={index}
                 className="flex items-center gap-2 text-gray-600 whitespace-nowrap text-sm font-medium"
               >
-                <span className="text-red-500">{stat.icon}</span>
+                <span className="text-[#FF7A1A]">{stat.icon}</span>
                 <span>{stat.text}</span>
-                <span className="mx-2 text-red-500">✦</span>
+                <span className="mx-2 text-[#FF7A1A]">✦</span>
               </div>
             ))}
           </div>
@@ -56,7 +56,7 @@ export default function EditorShowcase() {
           <div className="bg-black/90 backdrop-blur-sm px-6 py-4 flex items-center gap-4 border-b border-gray-800">
             <Menu className="w-6 h-6 text-white" />
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-red-600 rounded flex items-center justify-center">
+            <div className="w-8 h-8 bg-[#E65353] rounded flex items-center justify-center">
                 <Play className="w-5 h-5 text-white fill-white" />
               </div>
               <span className="text-white font-semibold text-lg">Youtube</span>
@@ -75,7 +75,7 @@ export default function EditorShowcase() {
                 <div className="absolute left-1/4 top-1/3 w-48 h-32 bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-600 transform -rotate-2">
                   <div className="p-2 space-y-1">
                     <div className="flex gap-1">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-[#E65353]"></div>
                       <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                       <div className="w-3 h-3 rounded-full bg-green-500"></div>
                     </div>
@@ -85,7 +85,7 @@ export default function EditorShowcase() {
                       <div className="h-2 bg-gray-600 rounded w-2/3"></div>
                     </div>
                     <div className="flex gap-1 mt-4">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-red-500 to-orange-500"></div>
+                      <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#E65353] to-[#FF7A1A]"></div>
                       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-500"></div>
                       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-teal-500"></div>
                       <div className="w-8 h-8 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500"></div>
@@ -116,10 +116,10 @@ export default function EditorShowcase() {
               }}
             >
               <div className="relative">
-                <div className="w-20 h-20 bg-gradient-to-br from-red-500 to-orange-500 rounded-3xl transform rotate-45 flex items-center justify-center shadow-2xl">
+                <div className="w-20 h-20 bg-gradient-to-br from-[#E65353] to-[#FF7A1A] rounded-3xl transform rotate-45 flex items-center justify-center shadow-2xl">
                   <Heart className="w-10 h-10 text-white fill-white transform -rotate-45" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-orange-500 rounded-3xl blur-xl opacity-50"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#E65353] to-[#FF7A1A] rounded-3xl blur-xl opacity-50"></div>
               </div>
             </div>
 
@@ -132,17 +132,17 @@ export default function EditorShowcase() {
               }}
             >
               <div className="relative">
-                <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl transform rotate-45 flex items-center justify-center shadow-2xl">
+                <div className="w-16 h-16 bg-gradient-to-br from-[#E65353] to-[#FF7A1A] rounded-2xl transform rotate-45 flex items-center justify-center shadow-2xl">
                   <Heart className="w-8 h-8 text-white fill-white transform -rotate-45" />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl blur-xl opacity-50"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#E65353] to-[#FF7A1A] rounded-2xl blur-xl opacity-50"></div>
               </div>
             </div>
 
             {/* Animated Sparkles */}
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-orange-400 rounded-full animate-ping"></div>
-            <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-red-400 rounded-full animate-pulse"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-orange-300 rounded-full animate-ping"></div>
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-[#FF7A1A] rounded-full animate-ping"></div>
+            <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-[#E65353] rounded-full animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-2 h-2 bg-[#F4C43A] rounded-full animate-ping"></div>
           </div>
 
           

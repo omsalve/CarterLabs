@@ -55,7 +55,7 @@ export default function PortfolioShowcase() {
 
         {/* Main Heading */}
         <h2 
-          className={`text-4xl md:text-5xl lg:text-6xl font-bold text-center text-gray-900 mb-6 transition-all duration-700 delay-100 ${
+          className={`text-4xl md:text-5xl lg:text-6xl font-bold text-center text-gray-900 mb-6 transition-all duration-700 delay-100 font-[family-name:var(--font-onyx)] ${
             mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >

@@ -61,7 +61,7 @@ export default function HowItWorks() {
 
         {/* Main Heading */}
         <h2 
-          className={`text-5xl md:text-6xl font-bold text-center text-gray-900 mb-4 transition-all duration-700 delay-100 ${
+          className={`text-5xl md:text-6xl font-bold text-center text-gray-900 mb-4 transition-all duration-700 delay-100 font-[family-name:var(--font-onyx)] ${
             mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
