@@ -1,26 +1,108 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* -------------------------------
+   THEME TOKENS (Tailwind v4)
+-------------------------------- */
+@theme {
+  --color-background: #0a0a0a;
+  --color-foreground: #ededed;
+
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Onyx', serif;
+  --font-script: 'Edwardian', cursive;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* -------------------------------
+   BASE STYLES
+-------------------------------- */
+html,
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ❌ NO global font-family here */
+/* Fonts are controlled ONLY via Tailwind classes */
+
+/* -------------------------------
+   CUSTOM FONTS
+-------------------------------- */
+
+/* Poppins — BODY */
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/body/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/body/Poppins-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/body/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/body/Poppins-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Edwardian Script — ACCENT */
+@font-face {
+  font-family: 'Edwardian';
+  src: url('/fonts/headings/edwardianscriptitc.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* OPTI Onyx — HEADINGS */
+@font-face {
+  font-family: 'Onyx';
+  src: url('/fonts/headings/OPTIOnyx.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* -------------------------------
+   ANIMATIONS
+-------------------------------- */
+@keyframes rotateUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-0.4em);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-rotateUp {
+  animation: rotateUp 2s ease-in-out;
 }

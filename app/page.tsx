@@ -7,6 +7,7 @@ import BusinessGrid from './components/BusinessGrid';
 import BandraFocus from './components/BandraFocus';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
+import CuratedReveal from './components/CuratedReveal';
 
 type VisibilityMap = Record<string, boolean>;
 
@@ -44,18 +45,16 @@ export default function CarterLabsWebsite() {
   }, []);
 
   return (
-    <div className="bg-black text-white overflow-x-hidden font-sans">
+    <div className="bg-white text-black overflow-x-hidden">
       <Hero scrollY={scrollY} />
       <Manifesto
   isVisible={isVisible}
-  scrollY={scrollY}
   refEl={(el: HTMLElement | null) => {
     observerRefs.current[0] = el;
   }}
 />
+      <CuratedReveal scrollY={scrollY} />
 
-      <BusinessGrid isVisible={isVisible} observerRefs={observerRefs} />
-      <BandraFocus isVisible={isVisible} refEl={(el) => (observerRefs.current[10] = el)} />
       <CTA />
       <Footer />
     </div>

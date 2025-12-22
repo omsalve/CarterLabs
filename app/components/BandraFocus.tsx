@@ -3,7 +3,7 @@ export default function BandraFocus({ isVisible, refEl }: any) {
     <section
       ref={refEl}
       data-section="focus"
-      className="min-h-screen flex items-center justify-center bg-zinc-950 px-6"
+      className="min-h-screen flex items-center justify-center bg-white px-6"
     >
       <div
         className="transition-all duration-1000 text-center"
