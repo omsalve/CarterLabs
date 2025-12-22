@@ -67,9 +67,9 @@ export default function Manifesto({ isVisible, refEl }: Props) {
 
         {/* RIGHT — 30% VISUAL */}
         <div className="hidden md:block basis-[30%]">
-          <div className="relative h-[68vh] w-full rounded-3xl overflow-hidden">
+          <div className="relative h-[85vh] w-full rounded-3xl overflow-hidden">
             <img
-              src="/images/bandra-portrait.jpg"
+              src="/Manifesto.jpg"
               alt="Bandra street culture"
               className="absolute inset-0 h-full w-full object-cover"
             />

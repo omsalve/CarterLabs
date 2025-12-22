@@ -24,7 +24,7 @@ export default function Hero({ scrollY }: Props) {
           className="mx-auto mb-8 w-[280px] md:w-[420px]"
         />
 
-        <p className="text-xl md:text-3xl text-gray-400 mb-8 font-body">
+        <p className="text-xl md:text-3xl text-gray-400 mb-4 font-body">
           We exist to elevate the perceived value of ventures around Bandra
         </p>
 
