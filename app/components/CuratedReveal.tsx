@@ -1,112 +1,177 @@
+"use client";
+
 import { useRef } from 'react';
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
+import clsx from 'clsx';
 
-type Props = {
-  scrollY: number;
-};
-
-const BLOCKS = [
-  { type: 'headline', text: 'Curated collaborations. Measurable growth.' },
-  { type: 'body', text: 'When you work with Carter Labs, you’re not hiring an agency.' },
-  { type: 'body', text: 'You’re entering a small, curated ecosystem.' },
-  { type: 'label', text: 'A lean business model means:' },
-  { type: 'list', text: 'Fewer clients' },
-  { type: 'list', text: 'Deeper involvement' },
-  { type: 'list', text: 'Absolute priority' },
-  { type: 'body', text: 'There’s security in knowing your agency isn’t stretched thin.' },
-  { type: 'body-strong', text: 'There’s confidence in knowing your growth is being shaped, not rushed.' },
+// Data Structure
+const MANIFEST_ITEMS = [
+  {
+    id: "01",
+    label: "THE APPROACH",
+    content: "Curated collaborations. Measurable growth.",
+    isHeading: true
+  },
+  {
+    id: "02",
+    label: "THE SHIFT",
+    content: "When you work with Carter Labs, you’re not hiring an agency. You’re entering a small, curated ecosystem.",
+  },
+  {
+    id: "03",
+    label: "THE MODEL",
+    content: "A lean business model means fewer clients, deeper involvement, and absolute priority.",
+    highlight: ["fewer clients", "deeper involvement", "absolute priority"] 
+  },
+  {
+    id: "04",
+    label: "THE OUTCOME",
+    content: "There’s security in knowing your agency isn’t stretched thin. There’s confidence in knowing your growth is being shaped, not rushed.",
+  }
 ];
 
-export default function CuratedReveal({ scrollY }: Props) {
-  const ref = useRef<HTMLDivElement | null>(null);
-
-  /* SECTION PROGRESS */
-  let sectionProgress = 0;
-
-  if (ref.current) {
-    const rect = ref.current.getBoundingClientRect();
-    const viewportH = window.innerHeight;
-
-    sectionProgress = Math.min(
-      Math.max((viewportH - rect.top) / (rect.height + viewportH), 0),
-      1
-    );
-  }
-
-  /* REVEAL CONTROL */
-  const START_AT = 0.30;
-  const REVEAL_WINDOW = 0.35;
-
-  const revealProgress = Math.min(
-    Math.max((sectionProgress - START_AT) / REVEAL_WINDOW, 0),
-    1
-  );
-
-  // 🔥 EXCLUDE HEADLINE FROM WORD COUNT
-  const revealBlocks = BLOCKS.filter(b => b.type !== 'headline');
-
-  const totalWords = revealBlocks.reduce(
-    (acc, b) => acc + b.text.split(' ').length,
-    0
-  );
-
-  let wordCursor = 0;
+export default function CuratedReveal() {
+  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={ref} className="max-w-4xl mx-auto text-center">
-      {/* ✅ HEADLINE — STATIC */}
-      <h2 className="text-5xl md:text-7xl font-bold mb-12 text-black">
-        Curated collaborations. Measurable growth.
-      </h2>
+    <section ref={containerRef} className="bg-[#0a0a0a] text-white py-32 min-h-screen flex justify-center">
+      <div className="w-full max-w-5xl px-6">
+        
+        {/* Section Header */}
+        <div className="mb-20 border-b border-white/10 pb-6 flex justify-between items-end">
+          <span className="font-heading text-4xl text-white/20">MANIFESTO</span>
+          <span className="font-mono text-xs text-red-600 uppercase tracking-widest">[ Read Only ]</span>
+        </div>
 
-      {/* 🔥 REVEALED CONTENT */}
-      {revealBlocks.map((block, blockIndex) => {
-        const words = block.text.split(' ');
+        {/* The List */}
+        <div className="flex flex-col">
+          {MANIFEST_ITEMS.map((item, index) => (
+            <RevealItem key={index} item={item} index={index} />
+          ))}
+        </div>
 
-        const baseClass =
-          block.type === 'label'
-            ? 'text-lg md:text-xl text-black/70 mt-8 mb-3'
-            : block.type === 'list'
-            ? 'text-lg md:text-xl font-medium mb-1'
-            : block.type === 'body-strong'
-            ? 'text-lg md:text-xl font-medium mt-6'
-            : 'text-lg md:text-xl text-black/80 leading-snug mb-3';
+      </div>
+    </section>
+  );
+}
+
+// ------------------------------------------------------------------
+// Sub-Component: The Row
+// ------------------------------------------------------------------
+
+function RevealItem({ item, index }: { item: any, index: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  
+  // Track scroll for THIS specific item
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start 0.8", "end 0.6"], // Reveals as it enters the "reading zone"
+  });
+
+  // 1. Border Glow Effect
+  const borderScale = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const borderOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+
+  return (
+    <div ref={ref} className="group relative grid md:grid-cols-[200px_1fr] gap-8 py-16 border-b border-white/5">
+      
+      {/* Animated Red Border (The "Progress" Line) */}
+      <motion.div 
+        style={{ scaleX: borderScale, opacity: borderOpacity }}
+        className="absolute bottom-0 left-0 w-full h-[1px] bg-red-600 origin-left z-10" 
+      />
+
+      {/* Left Column: Label / ID */}
+      <div className="flex flex-row md:flex-col justify-between md:justify-start gap-4">
+        <span className="font-mono text-xs text-red-600/70 tracking-widest">
+          {item.id} //
+        </span>
+        <h3 className="font-mono text-sm text-zinc-500 uppercase tracking-widest">
+          {item.label}
+        </h3>
+      </div>
+
+      {/* Right Column: The Content Reveal */}
+      <div className="relative">
+        {item.isHeading ? (
+          <HeadingReveal text={item.content} progress={scrollYProgress} />
+        ) : (
+          <BodyReveal 
+            text={item.content} 
+            highlights={item.highlight} 
+            progress={scrollYProgress} 
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
+// ------------------------------------------------------------------
+// Sub-Component: Heading Reveal (Bold & Big)
+// ------------------------------------------------------------------
+
+function HeadingReveal({ text, progress }: { text: string, progress: MotionValue<number> }) {
+  const opacity = useTransform(progress, [0, 0.5], [0.1, 1]);
+  const y = useTransform(progress, [0, 0.5], [20, 0]);
+
+  return (
+    <motion.h2 
+      style={{ opacity, y }}
+      className="font-heading text-6xl md:text-8xl leading-[0.85] text-white"
+    >
+      {text}
+    </motion.h2>
+  );
+}
+
+// ------------------------------------------------------------------
+// Sub-Component: Body Reveal (Word by Word)
+// ------------------------------------------------------------------
+
+function BodyReveal({ text, highlights = [], progress }: { text: string, highlights?: string[], progress: MotionValue<number> }) {
+  const words = text.split(" ");
+  
+  return (
+    <p className="font-body text-xl md:text-3xl leading-relaxed text-zinc-500 flex flex-wrap gap-x-2.5">
+      {words.map((word, i) => {
+        // Stagger the reveal of words based on scroll progress
+        const start = i / words.length; 
+        const end = start + (1 / words.length);
+        
+        // Is this word a keyword? (Simple check, creates the "Red" pop)
+        const cleanWord = word.replace(/[.,]/g, "").toLowerCase();
+        const isHighlight = highlights.some(h => h.includes(cleanWord));
 
         return (
-          <p
-            key={blockIndex}
-            className={`${baseClass} text-gray-600 flex flex-wrap justify-center`}
+          <Word 
+            key={i} 
+            progress={progress} 
+            range={[start * 0.5, 0.2 + (end * 0.5)]} // Tuning the speed
+            isHighlight={isHighlight}
           >
-            {words.map((word, i) => {
-              const wordStart = wordCursor / totalWords;
-              const wordEnd = (wordCursor + 1) / totalWords;
-
-              const progress = Math.min(
-                Math.max(
-                  (revealProgress - wordStart) /
-                    (wordEnd - wordStart),
-                  0
-                ),
-                1
-              );
-
-              wordCursor++;
-
-              return (
-                <span
-                  key={`${word}-${i}`}
-                  className="inline-block mr-1 will-change-transform"
-                  style={{
-                    opacity: progress,
-                    transform: `translateY(${4 * (1 - progress)}px)`,
-                  }}
-                >
-                  {word}
-                </span>
-              );
-            })}
-          </p>
+            {word}
+          </Word>
         );
       })}
-    </div>
+    </p>
+  );
+}
+
+function Word({ children, progress, range, isHighlight }: { children: string, progress: MotionValue<number>, range: [number, number], isHighlight: boolean }) {
+  const opacity = useTransform(progress, range, [0.1, 1]);
+  const y = useTransform(progress, range, [10, 0]);
+  const blur = useTransform(progress, range, ["4px", "0px"]);
+  
+  // If highlighted, it turns White or Red instead of Zinc
+  const color = isHighlight ? "#dc2626" : "#e4e4e7"; // red-600 : zinc-200
+
+  return (
+    <motion.span 
+      style={{ opacity, y, filter: blur, color: isHighlight ? color : undefined }} 
+      className={clsx("inline-block", isHighlight && "font-medium")}
+    >
+      {children}
+    </motion.span>
   );
 }
