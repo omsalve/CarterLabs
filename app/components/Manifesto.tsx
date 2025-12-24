@@ -69,7 +69,7 @@ export default function Manifesto({ isVisible, refEl }: any) {
           
           {/* Caption Overlay */}
           <div className="absolute bottom-6 left-6 bg-black/50 backdrop-blur-md px-4 py-2 border border-white/10">
-            <p className="font-heading text-2xl text-white tracking-wide">EST 2024 // MUMBAI</p>
+            <p className="font-heading text-2xl text-white tracking-wide">EST 2026 // MUMBAI</p>
           </div>
         </div>
 

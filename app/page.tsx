@@ -53,7 +53,7 @@ export default function CarterLabsWebsite() {
     observerRefs.current[0] = el;
   }}
 />
-      <CuratedReveal scrollY={scrollY} />
+      <CuratedReveal />
 
       <CTA />
       <Footer />
