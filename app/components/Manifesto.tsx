@@ -44,11 +44,16 @@ export default function Manifesto({ isVisible, refEl }: any) {
               We don't chase volume. <br />We work with the ecosystem that shapes the neighborhood.
             </p>
             
-            <p>
-              <Highlight>Cafés.</Highlight> <Highlight delay={0.1}>Bars.</Highlight>{" "}
-              <Highlight delay={0.2}>Salons.</Highlight>{" "}
-              <Highlight delay={0.3}>Cultural Spaces.</Highlight>
-            </p>
+            <motion.p
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true }}
+>
+  <Highlight delay={0.01}>Cafés.</Highlight>
+  <Highlight delay={0.1}> Bars.</Highlight>
+  <Highlight delay={0.2}> Salons.</Highlight>
+  <Highlight delay={0.3}> Cultural Spaces.</Highlight>
+</motion.p>
 
             <p className="text-white text-lg border-l-2 border-red-600 pl-6 italic">
               "As long as you’re Bandra, you’re in the conversation."

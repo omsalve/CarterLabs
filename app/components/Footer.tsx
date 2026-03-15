@@ -43,21 +43,6 @@ export default function Footer() {
             <p className="font-body text-zinc-500 max-w-sm leading-relaxed">
               We build digital infrastructure for the ventures that shape our neighborhood.
             </p>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-xs font-mono text-zinc-400">
-              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              BANDRA, MUMBAI — {time} IST
-            </div>
-          </div>
-
-          {/* Column 2: SITEMAP */}
-          <div>
-            <h4 className="font-mono text-xs text-red-600 uppercase tracking-widest mb-6">Sitemap</h4>
-            <ul className="space-y-4 font-body text-zinc-400">
-              <li><FooterLink href="/">Home</FooterLink></li>
-              <li><FooterLink href="#">Manifesto</FooterLink></li>
-              <li><FooterLink href="#">Ventures</FooterLink></li>
-              <li><FooterLink href="#">Private Access</FooterLink></li>
-            </ul>
           </div>
 
           {/* Column 3: SOCIALS */}
@@ -65,7 +50,6 @@ export default function Footer() {
             <h4 className="font-mono text-xs text-red-600 uppercase tracking-widest mb-6">Socials</h4>
             <ul className="space-y-4 font-body text-zinc-400">
               <li><FooterLink href="#">Instagram</FooterLink></li>
-              <li><FooterLink href="#">Twitter / X</FooterLink></li>
               <li><FooterLink href="#">LinkedIn</FooterLink></li>
               <li><FooterLink href="mailto:hello@carterlabs.in">Email Us</FooterLink></li>
             </ul>

@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from 'react';
 import Hero from './components/Hero';
 import Manifesto from './components/Manifesto';
-import BusinessGrid from './components/BusinessGrid';
-import BandraFocus from './components/BandraFocus';
+import CuratedReveal from './components/CuratedReveal';
 import CTA from './components/CTA';
 import Footer from './components/Footer';
-import CuratedReveal from './components/CuratedReveal';
+import CinematicGrain from './components/CinematicGrain';
+import Showreel from './components/ShowReel';
 
 type VisibilityMap = Record<string, boolean>;
 
@@ -19,7 +19,7 @@ export default function CarterLabsWebsite() {
   /* Scroll */
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -30,7 +30,6 @@ export default function CarterLabsWebsite() {
         entries.forEach((entry) => {
           const section = (entry.target as HTMLElement).dataset.section;
           if (!section) return;
-
           setIsVisible((prev) => ({
             ...prev,
             [section]: entry.isIntersecting,
@@ -45,15 +44,25 @@ export default function CarterLabsWebsite() {
   }, []);
 
   return (
-    <div className="bg-white text-black overflow-x-hidden">
+    // Changed from bg-white to bg-[#080808] — unified dark ground
+    <div className="bg-[#080808] text-white overflow-x-hidden">
+
+      {/* Living film grain — sits over everything */}
+      <CinematicGrain />
+
       <Hero scrollY={scrollY} />
+
       <Manifesto
-  isVisible={isVisible}
-  refEl={(el: HTMLElement | null) => {
-    observerRefs.current[0] = el;
-  }}
-/>
+        isVisible={isVisible}
+        refEl={(el: HTMLElement | null) => {
+          observerRefs.current[0] = el;
+        }}
+      />
+
       <CuratedReveal />
+
+      {/* ✦ The new Showreel section */}
+      <Showreel />
 
       <CTA />
       <Footer />
