@@ -311,14 +311,25 @@ export default function Showreel() {
     offset: ["start end", "end start"],
   });
 
-  // Subtle parallax on the section background
   const bgY = useTransform(scrollYProgress, [0, 1], ["0%", "6%"]);
+  const ghostX = useTransform(scrollYProgress, [0, 1], ["0%", "-3%"]);
 
   return (
     <section
       ref={sectionRef}
       className="relative bg-[#080808] text-white py-24 md:py-40 px-6 overflow-hidden"
     >
+      {/* Ghost word */}
+      <motion.div
+        style={{ x: ghostX }}
+        className="absolute bottom-0 left-0 pointer-events-none select-none z-[2] leading-none"
+        aria-hidden
+      >
+        <span className="font-heading text-[22vw] text-white/[0.03] whitespace-nowrap">
+          WORK.
+        </span>
+      </motion.div>
+
       {/* Background red mood wash — very subtle, atmospheric */}
       <motion.div
         style={{ y: bgY }}

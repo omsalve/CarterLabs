@@ -33,11 +33,29 @@ const MANIFEST_ITEMS = [
 export default function CuratedReveal() {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const ghostX = useTransform(scrollYProgress, [0, 1], ["0%", "-3%"]);
+
   return (
     <section
       ref={containerRef}
       className="relative bg-[#080808] text-white py-24 md:py-40 min-h-screen flex justify-center overflow-hidden"
     >
+      {/* Ghost word — bleeds behind everything */}
+      <motion.div
+        style={{ x: ghostX }}
+        className="absolute bottom-0 left-0 pointer-events-none select-none z-[2] leading-none"
+        aria-hidden
+      >
+        <span className="font-heading text-[22vw] text-white/[0.03] whitespace-nowrap">
+          MANIFESTO
+        </span>
+      </motion.div>
+
       {/* Background red mood wash */}
       <div
         className="absolute inset-0 pointer-events-none"
